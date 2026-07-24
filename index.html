@@ -127,6 +127,7 @@
 
 <div id="gate">
   <div class="box">
+    <div id="zuzu-oi" style="margin:-6px 0 6px"></div>
     <h2>🔒 Fluxo do Lead — AZUOS Contábil</h2>
     <p>Digite a senha da equipe para abrir o quadro colaborativo.</p>
     <input id="gatePwd" type="password" placeholder="Senha da equipe" onkeydown="if(event.key==='Enter')enterBoard()">
@@ -571,6 +572,15 @@ function toast(msg){
 /* init: renderiza fundo desfocado atrás do gate */
 suppressPush=true;render();fitView();suppressPush=false;
 setTimeout(()=>document.getElementById("gatePwd").focus(),150);
+</script>
+<script src="assets/js/zuzu.js"></script>
+<script>
+/* Zuzu no RESPIRO do login: dá as boas-vindas na tela de senha da equipe.
+   Nunca entra no canvas do fluxo (regra de ouro). */
+try{
+  var _zg=document.getElementById("zuzu-oi");
+  if(_zg&&window.zuzu)_zg.innerHTML=window.zuzu({pose:"continencia",anim:"wave",size:"md",alt:"Zuzu dá boas-vindas à equipe"});
+}catch(e){}
 </script>
 </body>
 </html>
